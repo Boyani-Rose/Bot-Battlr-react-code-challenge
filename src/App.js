@@ -12,11 +12,18 @@ function App() {
       .then((data)=>setBots(data))
     }, [])
 
+    const addToArmy = (bot) =>{
+      if (!army.find(b => b.id === bot.id)) {
+        setArmy([...army, bot])
+      }
+    }
+    
+
   return (
     
     <div>
       <YourBotArmy army={army} />
-      <BotCollection bots={bots} />
+      <BotCollection bots={bots} onAddToArmy={addToArmy}/>
     </div>
 
    
