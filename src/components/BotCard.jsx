@@ -1,4 +1,4 @@
-function BotCard({bot, onAddToArmy}) {
+function BotCard({bot, onAddToArmy, onDelete}) {
   return (
     <div className="bot-card" onClick={()=>onAddToArmy(bot)}>
       <img src={bot.avatar_url} alt={bot.name} />
@@ -6,7 +6,10 @@ function BotCard({bot, onAddToArmy}) {
       <p>Health: {bot.health}</p>
       <p>Damage: {bot.damage}</p>
       <p>Armor: {bot.armor}</p>
-      <button className="delete-btn">X</button>
+      <button className="delete-btn" onClick={(e)=>{
+        e.stopPropagation()
+        onDelete(bot.id)
+      }}>X</button>
     </div>
   );
 }

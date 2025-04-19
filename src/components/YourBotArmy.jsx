@@ -1,3 +1,5 @@
+import BotCard from "./BotCard";
+
 function YourBotArmy ({army, onRelease}){
 
     return (
@@ -13,3 +15,4 @@ function YourBotArmy ({army, onRelease}){
     )
 
 }
+export default YourBotArmy;

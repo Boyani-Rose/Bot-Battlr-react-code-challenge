@@ -1,11 +1,17 @@
-function BotCollection(){
-    return (
-        <div className="bot-collection">
-            {bots.map((bot)=>(
-                <BotCard key={bot.id} bot={bot} />
-            ))}
+import BotCard from "./BotCard";
 
-        </div>
-    )
+function BotCollection({ bots, onAddToArmy, onDelete }) {
+  return (
+    <div className="bot-collection">
+      {bots.map((bot) => (
+        <BotCard
+          key={bot.id}
+          bot={bot}
+          onAddToArmy={onAddToArmy}
+          onDelete={onDelete}
+        />
+      ))}
+    </div>
+  );
 }
 export default BotCollection;

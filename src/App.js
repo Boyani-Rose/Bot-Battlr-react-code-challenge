@@ -1,5 +1,7 @@
 import {useState, useEffect} from 'react'
 import './App.css';
+import BotCollection from './components/BotCollection';
+import YourBotArmy from './components/YourBotArmy';
 
 function App() {
 
@@ -17,13 +19,28 @@ function App() {
         setArmy([...army, bot])
       }
     }
-    
+
+    const releaseFromArmy = (bot) => {
+      setArmy(army.filter(b=> b.id !== bot.id))
+    }
+
+    const deleteBot = (id) => {
+
+      fetch(`http://localhost:8001/bots/${id}`, {
+        method: 'DELETE'
+      })
+      .then(()=>{
+        setArmy(army.filter(b => b.id !==id))
+        setBots(bots.filter(b => b.id !==id))
+      })
+
+    }
 
   return (
     
     <div>
-      <YourBotArmy army={army} />
-      <BotCollection bots={bots} onAddToArmy={addToArmy}/>
+      <YourBotArmy army={army} onRelease={releaseFromArmy}/>
+      <BotCollection bots={bots} onAddToArmy={addToArmy} onDelete={deleteBot}/>
     </div>
 
    
