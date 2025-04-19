@@ -6,6 +6,7 @@ function BotCard({bot, onAddToArmy, onDelete}) {
       <p>Health: {bot.health}</p>
       <p>Damage: {bot.damage}</p>
       <p>Armor: {bot.armor}</p>
+      <p>{bot.catchphrase}</p>
       <button className="delete-btn" onClick={(e)=>{
         e.stopPropagation()
         onDelete(bot.id)

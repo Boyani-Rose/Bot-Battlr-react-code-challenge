@@ -1,0 +1,143 @@
+/* styles.css - Bot Battlr Core Styling */
+:root {
+    --primary: #d7d9d2; /* Cyber green */
+    --secondary: #ff00aa; /* Neon pink */
+    --dark: #7baad1; /* Dark blue-black */
+    --text: #e0e0e0; /* Light gray */
+    --glow: 0 0 10px var(--primary);
+  }
+  
+  body {
+    background-color: var(--dark);
+    color: var(--text);
+    font-family: 'Courier New', monospace;
+    margin: 0;
+    padding: 20px;
+  }
+  
+  .bot-collection {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .bot-card {
+    background: rgba(55, 53, 151, 0.8);
+    border: 1px solid var(--primary);
+    border-radius: 5px;
+    padding: 15px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .bot-card:hover {
+    box-shadow: var(--glow);
+    transform: translateY(-5px);
+  }
+  
+  .bot-card::before {
+    content: attr(data-catchphrase);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 255, 157, 0.1);
+    padding: 5px;
+    font-size: 0.7em;
+    color: var(--primary);
+    word-break: break-all;
+  }
+  
+  .bot-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid var(--secondary);
+  }
+  
+  .bot-card h3 {
+    color: var(--secondary);
+    margin: 10px 0;
+    font-size: 1.3em;
+  }
+  
+  .stats {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
+  .stats span {
+    display: block;
+    font-size: 0.9em;
+  }
+  
+  .delete-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--secondary);
+    color: black;
+    border: none;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .delete-btn:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 8px var(--secondary);
+  }
+  
+  .your-bot-army {
+    background: rgba(255, 0, 170, 0.05);
+    border: 1px dashed var(--secondary);
+    padding: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .your-bot-army h2 {
+    color: var(--primary);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
+  
+  /* Binary code animation (like in your GIF) */
+  @keyframes binary-scroll {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 -100px; }
+  }
+  
+  .bot-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      transparent 50%,
+      rgba(0, 255, 157, 0.05) 50%
+    );
+    background-size: 100% 4px;
+    z-index: -1;
+    animation: binary-scroll 20s linear infinite;
+  }
+
+  .your-bot-army {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+  }
+  
+  .your-bot-army .bot-card {
+    flex: 0 0 auto; /* Prevent stretching */
+  }

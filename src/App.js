@@ -2,6 +2,7 @@ import {useState, useEffect} from 'react'
 import './App.css';
 import BotCollection from './components/BotCollection';
 import YourBotArmy from './components/YourBotArmy';
+import './style.css';
 
 function App() {
 
@@ -38,7 +39,7 @@ function App() {
 
   return (
     
-    <div>
+    <div className='App'>
       <YourBotArmy army={army} onRelease={releaseFromArmy}/>
       <BotCollection bots={bots} onAddToArmy={addToArmy} onDelete={deleteBot}/>
     </div>
