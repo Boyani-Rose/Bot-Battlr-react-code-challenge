@@ -168,3 +168,34 @@ body {
 .army-bot:hover {
   background: rgba(0, 255, 157, 0.2);
 }
+/* Add this to your CSS */
+.top-controls {
+  margin-bottom: 20px;
+}
+
+.control-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+/* Make filter and sort bars side by side on larger screens */
+@media (min-width: 768px) {
+  .filter-bar, .sort-bar {
+    flex: 1;
+    min-width: 300px;
+  }
+  
+  .filter-bar {
+    margin-right: 20px;
+  }
+}
+
+/* Your existing army and collection styles */
